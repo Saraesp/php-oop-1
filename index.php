@@ -8,6 +8,11 @@
         public $vote = 0;
         public $stars;
 
+        function __constructor($_title, $_director){
+            $this->title = $_title;
+            $this->director = $_director;
+        }
+
         public function setVoteFilm($stars) {
             if($stars > 3){
                 $this->vote = 'Questo film ha ottenuto più di 3 stelle';
@@ -21,8 +26,8 @@
     }
 
     //CREAZIONE OGGETTO
-    $movie_1 = new Movie();
-    $movie_2 = new Movie();
+    $movie_1 = new Movie('Inception', 'Christopher Nolan');
+    $movie_2 = new Movie('Harry Potter e la pietra filosofale', 'David Heyman');
 
     //ASSEGNAZIONE VALORI
     $movie_1->title = 'Inception';
@@ -36,6 +41,15 @@
     $movie_2->production_date = '2005-09-24';
     $movie_2->language = 'English';
 
+    //COSTRUTTORE
+    $title_3 = 'Cado dalle Nubi';
+    $director_3 = 'Gennaro Nunziante';
+    $title_4 = 'Southpaw';
+    $director_4 = 'Antoine Fuqua';
+
+    $movie_3 = new Movie($title_3, $director_4);
+
+    var_dump($movie_3);
 
 ?>
 
@@ -58,12 +72,9 @@
                         $movie_1->stars = 3;
                         $movie_2->stars = 4.5;
 
-                        echo var_dump($movie_1); 
                         $movie_1->setVoteFilm($movie_1->stars);
                         echo "<br>".$movie_1->getVoteFilm();
 
-
-                        echo var_dump($movie_2);
                         $movie_2->setVoteFilm($movie_2->stars);
                         echo "<br>".$movie_2->getVoteFilm();
                     ?>
