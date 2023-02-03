@@ -7,11 +7,7 @@
         public $language;
         public $vote;
         public $stars;
-
-        function __construct($_title, $_director){
-            $this->title = $_title;
-            $this->director = $_director;
-        }
+        public $genere;
 
         public function setVoteFilm($stars) {
             if($stars > 3){
@@ -25,9 +21,32 @@
 
     }
 
+    class Genre {
+        public $animazione;
+        public $biografia;
+        public $comico;
+        public $avventura;
+
+        function __construct($_animazione, $_biografia, $_comico, $_avventura){
+            $this->animazione = $_animazione;
+            $this->biografia = $_biografia;
+            $this->comico = $_comico;
+            $this->avventura = $_avventura;
+        }
+    }
+
     //CREAZIONE OGGETTO
     $movie_1 = new Movie('Inception', 'Christopher Nolan');
-    $movie_2 = new Movie('Harry Potter e la pietra filosofale', 'David Heyman');
+    // $movie_2 = new Movie('Harry Potter e la pietra filosofale', 'David Heyman');
+
+    $genere_1 = new Genre ('Animazione', 'Biografia','Comico', 'Avventura' );
+    $genere_2 = new Genre ('Drammatico', 'Storico','Fantascienza', 'Azione' );
+
+    $movie_1->genere = [$genere_1, $genere_2];
+
+    echo "<pre>";
+    var_dump($movie_1);
+    echo "</br>";
 
     //ASSEGNAZIONE VALORI
     $movie_1->title = 'Inception';
@@ -36,20 +55,12 @@
     $movie_1->language = 'English';
 
 
-    $movie_2->title = 'Harry Potter e la pietra filosofale';
-    $movie_2->director = 'David Heyman';
-    $movie_2->production_date = '2005-09-24';
-    $movie_2->language = 'English';
+    // $movie_2->title = 'Harry Potter e la pietra filosofale';
+    // $movie_2->director = 'David Heyman';
+    // $movie_2->production_date = '2005-09-24';
+    // $movie_2->language = 'English';
 
-    //COSTRUTTORE
-    $title_3 = 'Cado dalle Nubi';
-    $director_3 = 'Gennaro Nunziante';
-    $title_4 = 'Southpaw';
-    $director_4 = 'Antoine Fuqua';
 
-    $movie_3 = new Movie($title_3, $director_4);
-
-    var_dump($movie_3);
 
 ?>
 
