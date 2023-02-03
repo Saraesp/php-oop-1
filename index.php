@@ -9,6 +9,14 @@
         public $stars;
         public $genere;
 
+
+        function __construct($_title, $_director, $_production_date, $_language){
+            $this->title = $_title;
+            $this->director = $_director;
+            $this->production_date = $_production_date;
+            $this->language = $_language;
+        }
+
         public function setVoteFilm($stars) {
             if($stars > 3){
                 $this->vote = 'Questo film ha ottenuto più di 3 stelle';
@@ -36,7 +44,7 @@
     }
 
     //CREAZIONE OGGETTO
-    $movie_1 = new Movie('Inception', 'Christopher Nolan');
+    $movie_1 = new Movie('Inception', 'Christopher Nolan', '2010-11-18', 'English');
     // $movie_2 = new Movie('Harry Potter e la pietra filosofale', 'David Heyman');
 
     $genere_1 = new Genre ('Animazione', 'Biografia','Comico', 'Avventura' );
@@ -80,14 +88,14 @@
             <div class="col-12">
                 <pre>
                     <?php 
-                        $movie_1->stars = 3;
-                        $movie_2->stars = 4.5;
+                        // $movie_1->stars = 3;
+                        // $movie_2->stars = 4.5;
 
-                        $movie_1->setVoteFilm($movie_1->stars);
-                        echo "<br>".$movie_1->getVoteFilm();
+                        // $movie_1->setVoteFilm($movie_1->stars);
+                        // echo "<br>".$movie_1->getVoteFilm();
 
-                        $movie_2->setVoteFilm($movie_2->stars);
-                        echo "<br>".$movie_2->getVoteFilm();
+                        // $movie_2->setVoteFilm($movie_2->stars);
+                        // echo "<br>".$movie_2->getVoteFilm();
                     ?>
                 </pre>
             </div>
