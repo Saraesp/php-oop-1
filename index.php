@@ -5,10 +5,10 @@
         public $director;
         public $production_date;
         public $language;
-        public $vote = 0;
+        public $vote;
         public $stars;
 
-        function __constructor($_title, $_director){
+        function __construct($_title, $_director){
             $this->title = $_title;
             $this->director = $_director;
         }
